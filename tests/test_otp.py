@@ -23,9 +23,13 @@ with sync_playwright() as p:
     page.goto("https://example.com/login")
 
     # Step 2: Enter username & password
-    page.fill("input[name='username']", "testuser")
-    page.fill("input[name='password']", "password123")
-    page.click("text=Login")
+    page.get_by_label("Username").fill("testuser")
+
+    # Fill password using role-based locator
+    page.get_by_label("Password").fill("password123")
+
+    # Click login button using text locator
+    page.get_by_text("Login").click()
 
     # Step 3: Wait for OTP input field
     page.wait_for_selector("input[name='otp']")
