@@ -4,7 +4,7 @@ import playwright
 from playwright.sync_api import Page, Playwright, expect, sync_playwright
 
 
-def test_login_web(page : Page ):
+def test_login_web():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
