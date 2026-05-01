@@ -1,11 +1,9 @@
 import time
 
+import playwright
 from playwright.sync_api import Page, Playwright, expect
 
 def test_login_web(page : Page ):
-    browser = page.chromium.launch()
-    context = browser.new_context()
-    page = context.new_page
 
     page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     page.get_by_label("Username:").fill("rahulshettyacademy")
