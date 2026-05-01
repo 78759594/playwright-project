@@ -4,7 +4,7 @@ import playwright
 from playwright.sync_api import Page, Playwright, expect, sync_playwright
 
 
-def test_login_web():
+def test_invalid_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -36,7 +36,13 @@ def test_valid_login():
 
         title = page.title()
         assert "LoginPage Practise | Rahul Shetty Academy" in title
-        #assert page.is_visible("text=Welcome")
+
+        iphone = page.locator("app-card").filter(has_text="iphone X")
+        iphone.get_by_role("button").click()
+        nokia=page.locator("app-card").filter(has_text="Nokia Edge")
+        nokia.get_by_role("button").click()
+
+
 
 def test_diff_function():
     with sync_playwright() as p:
