@@ -2,7 +2,7 @@ import time
 
 from playwright.sync_api import Page, Playwright, expect
 
-def test_login_web(playwright):
+def test_login_web(playwright : Playwright ):
     browser = playwright.chromium.launch()
     context = browser.new_context()
     page = context.new_page
@@ -11,5 +11,5 @@ def test_login_web(playwright):
     page.get_by_label("Username:").fill("rahulshettyacademy")
     page.get_by_label("Password:").fill("Learning@830$3mK2")
     page.locators("#terms").click()
-    page.get_by_role("button", name = "Sign In").click()
+    page.get_by_role("button", name = "sign in").click()
 
