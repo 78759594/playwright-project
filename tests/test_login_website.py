@@ -2,8 +2,8 @@ import time
 
 from playwright.sync_api import Page, Playwright, expect
 
-def test_login_web(playwright : Playwright ):
-    browser = playwright.chromium.launch()
+def test_login_web(page : Page ):
+    browser = page.chromium.launch()
     context = browser.new_context()
     page = context.new_page
 
