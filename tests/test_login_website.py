@@ -9,8 +9,28 @@ def test_login_web():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+
+        #login test case
         page.get_by_label("Username:").fill("rahulshettyacademy")
         page.get_by_label("Password:").fill("Learning@830$3mK2")
+
+        # select checkbox
         page.locator("#terms").click()
+
+        # select drop down
+        teacher = page.get_by_role("combobox").select_option("Teacher")
+        print(teacher)
         page.get_by_role("button", name = "sign in").click()
+
+
+def test_diff_function():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+
+
+
+
+
 
