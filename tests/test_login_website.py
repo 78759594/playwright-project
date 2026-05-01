@@ -12,7 +12,7 @@ def test_login_web():
 
         #login test case
         page.get_by_label("Username:").fill("rahulshettyacademy")
-        page.get_by_label("Password:").fill("Learning@830$3mK2")
+        page.get_by_label("Password:").fill("Learning")
 
         # select checkbox
         page.locator("#terms").check()
