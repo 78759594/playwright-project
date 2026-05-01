@@ -23,7 +23,7 @@ def test_login_web():
         # to validate assertion with test case
         expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
 
-def test_valid_login(page):
+def test_valid_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -33,7 +33,10 @@ def test_valid_login(page):
         page.get_by_role("radio", name="Student").check()
         page.get_by_label("I Agree to the terms and conditions").check()
         page.get_by_role("button", name="Sign In").click()
-        assert page.is_visible("text=Welcome")
+
+        title = page.title()
+        assert "ProtoCommerce" in title
+        #assert page.is_visible("text=Welcome")
 
 def test_diff_function():
     with sync_playwright() as p:
