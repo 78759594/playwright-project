@@ -35,7 +35,7 @@ def test_valid_login():
         page.get_by_role("button", name="sign in").click()
 
         title = page.title()
-        assert "ProtoCommerce" in title
+        assert "LoginPage Practise | Rahul Shetty Academy" in title
         #assert page.is_visible("text=Welcome")
 
 def test_diff_function():
