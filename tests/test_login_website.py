@@ -44,7 +44,7 @@ def test_login_web():
         page.get_by_role("button", name="sign in").click()
 
         # to validate assertion with test case
-        expect(page.get_by_title("ProtoCommerce")).to_be_visible()
+        assert page.is_visible("ProtoCommerce")
 def test_diff_function():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
