@@ -27,24 +27,18 @@ def test_login_web():
         # to validate assertion with test case
         expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
 
-        page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+        page.goto("https://example.com/login")
 
-        # login test case
-        page.get_by_label("Username:").fill("rahulshettyacademy")
-        page.get_by_label("Password:").fill("Learning@830$3mK2")
+        # Step 2: Fill username and password
+        page.get_by_label("Username").fill("testuser")
+        page.get_by_label("Password").fill("password123")
 
-        # select checkbox
-        page.locator("#terms").check()
+        # Step 3: Click login button
+        page.get_by_role("button", name="Login").click()
 
-        # to click link
-        page.get_by_role("link", name="terms and conditions").click()
-        # select drop down
-        teacher = page.get_by_role("combobox").select_option("Teacher")
-        print(teacher)
-        page.get_by_role("button", name="sign in").click()
-
-        # to validate assertion with test case
-        assert page.is_visible("ProtoCommerce")
+        # Step 4: Assert login success
+        assert page.is_visible("text=Welcome")
+        
 def test_diff_function():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
