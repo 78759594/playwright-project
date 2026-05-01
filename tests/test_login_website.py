@@ -15,13 +15,17 @@ def test_login_web():
         page.get_by_label("Password:").fill("Learning@830$3mK2")
 
         # select checkbox
-        page.locator("#terms").click()
+        page.locator("#terms").check()
 
+        # to click link
+        page.get_by_role("link", name ="terms and conditions").click()
         # select drop down
         teacher = page.get_by_role("combobox").select_option("Teacher")
         print(teacher)
         page.get_by_role("button", name = "sign in").click()
 
+        # to validate assertion with test case
+        expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
 
 def test_diff_function():
     with sync_playwright() as p:
