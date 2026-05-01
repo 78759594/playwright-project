@@ -11,6 +11,6 @@ def test_login_web():
         page.goto("https://rahulshettyacademy.com/loginpagePractise/")
         page.get_by_label("Username:").fill("rahulshettyacademy")
         page.get_by_label("Password:").fill("Learning@830$3mK2")
-        page.locators("#terms").click()
+        page.locator("#terms").click()
         page.get_by_role("button", name = "sign in").click()
 
