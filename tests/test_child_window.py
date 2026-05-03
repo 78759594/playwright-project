@@ -10,10 +10,9 @@ with sync_playwright() as p:
     with page.expect_popup() as new_pageinfo:
         page.get_by_text("Free Access to InterviewQues/ResumeAssistance/Material").click()
         childPage = new_pageinfo.value
-        text = childPage.locator(".red").text.content()
+        text = childPage.locator(".red").text_content()
         print(text)
         words = text.split("at")
         email = words[1].split(" ")[1]
         print(email)
         assert email == "mentor@rahulshettyacademy.com"
-        
