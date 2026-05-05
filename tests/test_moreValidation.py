@@ -1,3 +1,4 @@
+import time
 
 from playwright.sync_api import sync_playwright, expect
 
@@ -17,6 +18,7 @@ def test_diff_function():
         #page.goto("https://rahulshettyacademy.com/AutomationPractice/")
         page.locator("#mousehover").hover()
         page.get_by_role("link",name="Top").click()
+        time.sleep(2)
 
 
 
