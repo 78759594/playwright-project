@@ -19,7 +19,6 @@ def test_diff_function():
 
 
         # frame handling
-        pageFrame = page.frame_locator("#course-iframe")
-        pageFrame.get_by_role("link", name = "All Access plan").click()
+        pageFrame = page.frame_locator("#courses-iframe")
+        pageFrame.get_by_role("link", name="All Access plan").click()
         expect(pageFrame.locator("body")).to_contain_text("Happy Subscibers")
-        
