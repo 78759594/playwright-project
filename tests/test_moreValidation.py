@@ -1,3 +1,4 @@
+
 from playwright.sync_api import sync_playwright, expect
 
 
@@ -12,4 +13,13 @@ def test_diff_function():
         page.get_by_role("button",name="Hide").click()
         expect(page.get_by_placeholder("Hide/Show example")).to_be_hidden()
 
+        # alert handle
+        page.on("dialog",lambda dialog:dialog.accept())
+        page.get_by_role("button",name="Confirm").click()
+
+
+        # frame handling
+        pageFrame = page.frame_locator("#course-iframe")
+        pageFrame.get_by_role("link", name = "All Access plan").click()
+        expect(pageFrame.locator("body")).to_contain_text("Happy Subscibers")
         
