@@ -31,7 +31,7 @@ def test_diff_function():
         expect(pageFrame.locator("body")).to_contain_text("Happy Subscibers")
 
         # check price of rice is equal to 30 from table
-        page.goto("https://rahulshettyacademy.com/seleniumPractice/#/offers")
+        page.goto("https://rahulshettyacademy.com/seleniumPractise/#/offers")
         for index in range(page.locator("th").count()):
             if page.locator("th").nth(index).filter(has_text="Price").count()>0:
                 colValue = index
@@ -42,4 +42,3 @@ def test_diff_function():
         expect(riceRow.locator("td").nth(colValue)).to_have_text("37")
 
 
-        
