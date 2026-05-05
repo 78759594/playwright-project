@@ -43,4 +43,9 @@ def test_diff_function():
         riceRow = page.locator("tr").filter(has_text="Rice")
         expect(riceRow.locator("td").nth(colValue)).to_have_text("37")
 
+        with page.expect_popup() as new_pageinfo:
+            page.get_by_text("Get Shortlisted by Recruiters - Take QA Skill Assessments on TechSmartHire").click()
+            childPage = new_pageinfo.value
+            expect(childPage.get_by_text("Not Resumes")).to_be_visible()
+
 
